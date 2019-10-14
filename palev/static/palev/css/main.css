@@ -1,0 +1,13 @@
+:root {
+  --main-color: #f7a809;
+}
+
+@font-face {
+  font-family: LatoBold;
+  src: url(../fonts/Lato-Bold.ttf);
+}
+
+#main {
+  max-width: 1240px;
+  margin: 20px auto auto auto;
+}

@@ -4,15 +4,49 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Аренда грязезащитных ковров, высококачественные грязезащитные ковры в аренду | Группа компаний «Палев»</title>
+
+        {% load static %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'palev/css/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'palev/css/header.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'palev/css/footer.css' %}">
+
+        {% block custom %}
+        {% endblock %}
     </head>
+
+
     <body>
-      <div id="header">
-        I'm a header!
-      </div>
-      {% block content %}
-      {% endblock %}
-      <div id="footer">
-        I'm a footer!
+      <div id="main">
+        <div id="header">
+          <div class="header__container">
+            <div class="header__logo"><img src="{% static 'palev/images/logo.png' %}"></div>
+            <div class="header__links">
+              <div class="header__link-container"><a class="header__link" href="#">Главная</a></div>
+              <div class="header__link-container"><a class="header__link" href="#">О нас</a></div>
+              <div class="header__link-container"><a class="header__link" href="#">Прокат ковров</a></div>
+              <div class="header__link-container"><a class="header__link" href="#">Стирка белья и ковров</a></div>
+              <div class="header__link-container"><a class="header__link" href="#">Химчистка</a></div>
+            </div>
+          </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+        <div id="footer">
+          <div class="footer__links">
+            <a class="footer__link" href="#">Главная</a>
+            <a class="footer__link" href="#">О нас</a>
+            <a class="footer__link" href="#">Прокат ковров</a>
+            <a class="footer__link" href="#">Стирка белья и ковров</a>
+            <a class="footer__link" href="#">Химчистка</a>
+            <a class="footer__link" href="#">Образцы ковров</a>
+            <a class="footer__link" href="#">Полезная информация</a>
+            <a class="footer__link" href="#">Наши клиенты</a>
+            <a class="footer__link" href="#">Контакты</a>
+          </div>
+          <div class="footer__text">г. Москва, ул. Кольская д. 7, с. 8 | +7 (495) 600-39-89 | +7 (495) 504-75-26 | info@palev.ru</div>
+          <div class="footer__text">© palev.ru, 2019</div>
+        </div>
       </div>
     </body>
 </html>

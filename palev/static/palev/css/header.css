@@ -1,0 +1,39 @@
+#header {
+  width: 100%;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo {
+  width: 400px;
+}
+
+.header__logo > img {
+  width: 100%;
+}
+
+.header__links {
+  display: flex;
+  align-items: center;
+}
+
+.header__link-container {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header__link {
+  font-family: "LatoBold", Arial, Tahoma, sans-serif;
+  font-size: 18px;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.header__link:hover {
+  color: var(--main-color);
+}

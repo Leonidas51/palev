@@ -1,0 +1,67 @@
+:root {
+  --rotate-time: 15s;
+  --translate-time: calc(var(--rotate-time) * 0.05);
+  --translate-delay: calc(var(--rotate-time) * 0.95);
+}
+
+.index-pics-container {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  background-color: #4a4a4a;
+}
+
+.index-pic-primary {
+  position: absolute;
+  right: 0;
+  bottom: -150px;
+  animation: var(--rotate-time) main-pic linear forwards;
+}
+
+.index-pic-secondary {
+  position: absolute;
+  right: 0;
+  bottom: -150px;
+  transform: translateX(100%);
+  animation: var(--translate-time) secondary-pic linear forwards;
+  animation-delay: var(--translate-delay);
+}
+
+@keyframes secondary-pic {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes main-pic {
+  0% {
+    transform: translateX(0) scale(1.2) rotate(0deg);
+  }
+
+  95% {
+    transform: translateX(0) scale(1.2) rotate(-25deg);
+  }
+
+  100% {
+    transform: translateX(-100%) scale(1.2) rotate(-25deg);
+  }
+}
+
+.index-pic-title {
+  position: absolute;
+  width: 100%;
+  bottom: 75px;
+}
+
+.index-pic-text {
+  font-family: "LatoBold", Arial, Tahoma, sans-serif;
+  font-size: 35px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: center;
+}
