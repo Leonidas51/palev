@@ -1,7 +1,5 @@
 :root {
-  --rotate-time: 15s;
-  --translate-time: calc(var(--rotate-time) * 0.05);
-  --translate-delay: calc(var(--rotate-time) * 0.95);
+  --cycle-time: 16s;
 }
 
 .index-pics-container {
@@ -12,43 +10,91 @@
   background-color: #4a4a4a;
 }
 
-.index-pic-primary {
+.index-pic {
   position: absolute;
-  right: 0;
-  bottom: -150px;
-  animation: var(--rotate-time) main-pic linear forwards;
+  transition: transform 0.7s;
+  background-color: #4a4a4a;
 }
 
-.index-pic-secondary {
-  position: absolute;
-  right: 0;
-  bottom: -150px;
+.index-pic-current {
+  z-index: 100;
+}
+
+.index-pic-next {
   transform: translateX(100%);
-  animation: var(--translate-time) secondary-pic linear forwards;
-  animation-delay: var(--translate-delay);
+  opacity: 0;
 }
 
-@keyframes secondary-pic {
+.index-pic-1 {
+  bottom: -100px;
+  right: 0;
+}
+
+.index-pic-2 {
+  bottom: -120px;
+}
+
+.index-pic-3 {
+  width: 140%;
+  height: 100%;
+}
+
+.index-image {
+  
+}
+
+.index-image-1 {
+  transform: scale(1.2);
+}
+
+.index-image-2 {
+
+}
+
+.index-image-3 {
+  width: 100%;
+  height: 100%;
+}
+
+.index-image-1.animate {
+  animation: var(--cycle-time) pic-1 linear infinite alternate;
+}
+
+.index-image-2.animate {
+  animation: var(--cycle-time) pic-2 linear infinite alternate;
+}
+
+.index-image-3.animate {
+  animation: var(--cycle-time) pic-3 linear infinite alternate;
+}
+
+@keyframes pic-1 {
   0% {
-    transform: translateX(100%);
+    transform: scale(1.2) rotate(0deg);
   }
 
   100% {
+    transform: scale(1.2) rotate(-25deg);
+  }
+}
+
+@keyframes pic-2 {
+  0% {
     transform: translateX(0%);
   }
+
+  100% {
+    transform: translateX(-20%);
+  }
 }
 
-@keyframes main-pic {
+@keyframes pic-3 {
   0% {
-    transform: translateX(0) scale(1.2) rotate(0deg);
-  }
-
-  95% {
-    transform: translateX(0) scale(1.2) rotate(-25deg);
+    transform: translateX(0%);
   }
 
   100% {
-    transform: translateX(-100%) scale(1.2) rotate(-25deg);
+    transform: translateX(-20%);
   }
 }
 
@@ -56,6 +102,7 @@
   position: absolute;
   width: 100%;
   bottom: 75px;
+  z-index: 200;
 }
 
 .index-pic-text {
