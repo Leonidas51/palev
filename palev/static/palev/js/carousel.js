@@ -11,7 +11,7 @@
 
       items[index].classList.remove('carousel__container_current');
 
-      timer = setTimeout(stopAnimation(index), 500);
+      timer = setTimeout(stopAnimation(index), 700);
 
       if (items[index + 2]) {
         items[index + 2].classList.add('carousel__container_next');
