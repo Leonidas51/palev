@@ -155,6 +155,31 @@
   justify-content: space-between;
 }
 
+.index-services__icon {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-services__icon a {
+  display: block;
+  width: 90%;
+  height: 90%;
+  transition: 0.3s;
+}
+
+.index-services__icon a:hover {
+  width: 100%;
+  height: 100%;
+}
+
+.index-services__icon img {
+  width: 100%;
+  height: 100%;
+}
+
 .index-services__container {
   width: 270px;
   display: flex;
