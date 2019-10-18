@@ -8,9 +8,11 @@
         {% load static %}
 
         <link rel="stylesheet" type="text/css" href="{% static 'palev/css/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'palev/css/carousel.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'palev/css/header.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'palev/css/footer.css' %}">
 
+        <script src="{% static 'palev/js/carousel.js' %}"></script>
         {% block custom %}
         {% endblock %}
     </head>
@@ -31,6 +33,26 @@
             </div>
           </div>
         </div>
+ 
+        <div class="carousel carousel_main">
+          <div class="carousel__container carousel__container_current carousel__container_main-1">
+              <img class="carousel__image carousel__image_initial carousel__image_main-1" src="{% static 'palev/images/001.jpg' %}">
+          </div>
+          <div class="carousel__container carousel__container_next carousel__container_main-2">
+              <img class="carousel__image carousel__image_main-2" src="{% static 'palev/images/002.jpg' %}">
+          </div>
+          <div class="carousel__container carousel__container_main-3">
+              <img class="carousel__image carousel__image_main-3" src="{% static 'palev/images/003.jpg' %}">
+          </div>
+          <div class="carousel_main__container-contacts">
+            <a class="carousel_main__container-tel carousel_main__container-tel_1" href="tel:+74956003989">+7 (495) 600-39-89</a><br />
+            <a class="carousel_main__container-tel carousel_main__container-tel_2" href="tel:+74955047526">+7 (495) 504-75-26</a>
+          </div>
+          <div class="carousel_main__container-title">
+            <div class="carousel_main__text">Аренда грязезащитных ковров</div>
+          </div>
+        </div>
+
         {% block content %}
         {% endblock %}
         <div id="footer">
