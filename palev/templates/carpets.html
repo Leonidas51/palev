@@ -60,36 +60,38 @@
 
 
     <form id="carpet-form" method="post">
-        <div class="carpet" id="carpet-1">
+        <div class="carpet-form__carpet" id="carpet-1">
         <div>
           <span>Выбор типа покрытия</span>
           <label>
-            <input class="carp-type" name="1-type" type="radio" checked="checked" value="York">
+            <input class="carpet-form__type" name="1-type" type="radio" checked="checked" value="York">
             <span>York</span>
           </label>
 
           <label>
-            <input class="carp-type" name="1-type" type="radio" value="NovaNop">
+            <input class="carpet-form__type" name="1-type" type="radio" value="NovaNop">
             <span>Nova Nop</span>
           </label>
         </div>
         <div class="carp-size">
           <p>Размер ковра</p>
-          <input class="cm-w" name="1-size-w" type="text" placeholder="см" required=""><span> X </span><input class="cm-h" name="1-size-h" type="text" placeholder="см" required="">
+          <input class="carpet-form__cm-w" name="1-size-w" type="text" placeholder="см" required=""><span> X </span><input class="carpet-form__cm-h" name="1-size-h" type="text" placeholder="см" required="">
         </div>
         <div class="carp-amount">
           <p>Количество</p>
-          <input class="amount" name="1-amount" type="number" min="1" value="1">
+          <input class="carpet-form__amount" name="1-amount" type="number" min="1" value="1">
         </div>
-        <p>Итого в месяц: <span class="carpet-total" id="1-total">0</span>р</p>
+        <p>Итого в месяц: <span class="carpet-form__carpet-total" id="1-total">0</span>р</p>
       </div>
-      <a href="#" id="add-more">+ Добавить другой размер ковра</a>
-      <p class="total-text">Всего: <span id="total">0</span>р</p>
+      <a href="#" id="carpet-form__add-more">+ Добавить другой размер ковра</a>
+      <p class="carpet-form__total-text"><b>Всего: <span id="carpet-form__total">0</span>р</b></p>
       <input type="text" name="name" placeholder="Имя" required="">
       <input type="text" name="phone" placeholder="Телефон" required="">
       <input type="text" name="email" placeholder="Электронная почта" required="">
 
-      <a><input class="carp-submit" type="submit" value="Отправить заявку менеджеру"></a>
+      {% csrf_token %}
+
+      <a><input class="carpet-form__submit" type="submit" value="Отправить заявку менеджеру"></a>
     </form>
 
 

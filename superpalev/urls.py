@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^carpets/', views.carpets, name='carpets'),
     url(r'^articles/', views.articles, name='articles'),
     url(r'^article/(?P<pk>[0-9]+)$', views.article, name='article'),
+    url(r'^replacement/', views.replacement, name='replacement'),
+    url(r'^send_carpet_form/$', views.send_carpet_form, name='send_carpet_form'),
     url(r'^admin/', admin.site.urls),
 ]

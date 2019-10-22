@@ -27,7 +27,7 @@ html {
   font-size: 18px;
 }
 
-.title {
+h1.title {
   font-family: "LatoBold", Arial, Tahoma, sans-serif;
   font-size: 30px;
 }
@@ -59,4 +59,13 @@ html {
 
 .article__pic > img {
   max-width: 100%;
+}
+
+.hours-img {
+  display: flex;
+  justify-content: center;
+}
+
+.hours-img > img {
+  width: 60%;
 }

@@ -3,31 +3,31 @@
 
   window.addEventListener('load', function() {
     addEvents(document.querySelector('#carpet-1'));
-    console.log(1);
-    document.querySelector('#add-more').addEventListener('click', addCarpet);
+    document.querySelector('#carpet-form__add-more').addEventListener('click', addCarpet);
+    document.querySelector('#carpet-form').addEventListener('submit', submitForm);
   });
 
   function calcPrice(e) {
-    var el = e.target.closest('.carpet');
+    var el = e.target.closest('.carpet-form__carpet');
 
-    var width = el.querySelector('.cm-w').value,
-        length = el.querySelector('.cm-h').value,
+    var width = el.querySelector('.carpet-form__cm-w').value,
+        length = el.querySelector('.carpet-form__cm-h').value,
         type_mul = el.querySelector('input[value="York"]').checked == true ? 687 : 795,
-        amount = el.querySelector('.amount').value;
+        amount = el.querySelector('.carpet-form__amount').value;
 
-    el.querySelector('.carpet-total').innerHTML = Math.round(Number((width * length) / 10000 * type_mul * amount));
+    el.querySelector('.carpet-form__carpet-total').innerHTML = Math.round(Number((width * length) / 10000 * type_mul * amount));
     calcTotal();
   }
 
   function calcTotal() {
-    var prices = document.querySelectorAll('.carpet-total'),
+    var prices = document.querySelectorAll('.carpet-form__carpet-total'),
         sum = 0;
 
     for(var i=0; i < prices.length; i++) {
       sum += Number(prices[i].innerHTML);
     }
 
-    document.querySelector('#total').innerHTML = sum;
+    document.querySelector('#carpet-form__total').innerHTML = sum;
   }
 
   function addCarpet(e) {
@@ -35,27 +35,27 @@
     carpets++;
 
     e.target.insertAdjacentHTML('beforebegin', 
-    '<div class="carpet" id="carpet-' + carpets + '">' +
+    '<div class="carpet-form__carpet" id="carpet-' + carpets + '">' +
     '<div>' +
     '<span>Выбор типа покрытия</span>' +
     '<label>' +
-    '<input class="carp-type" name="' + carpets +'-type" type="radio" checked="checked" value="York">' +
+    '<input class="carpet-form__type" name="' + carpets +'-type" type="radio" checked="checked" value="York">' +
     '<span>York</span>' +
     '</label>' +
     '<label>' +
-    '<input class="carp-type" name="' + carpets +'-type" type="radio" value="NovaNop">' +
+    '<input class="carpet-form__type" name="' + carpets +'-type" type="radio" value="NovaNop">' +
     '<span>Nova Nop</span>' +
     '</label>' +
     '</div>' +
     '<div class="carp-size">' +
     '<p>Размер ковра</p>' +
-    '<input class="cm-w" name="' + carpets +'-size-w" type="text" placeholder="см" required><span> X </span><input class="cm-h" name="' + carpets + '-size-h" type="text" placeholder="см" required>' +
+    '<input class="carpet-form__cm-w" name="' + carpets +'-size-w" type="text" placeholder="см" required><span> X </span><input class="carpet-form__cm-h" name="' + carpets + '-size-h" type="text" placeholder="см" required>' +
     '</div>' +
     '<div class="carp-amount">' +
     '<p>Количество</p>' +
-    '<input class="amount" name="' + carpets + '-amount" type="number" min="1" value="1">' +
+    '<input class="carpet-form__amount" name="' + carpets + '-amount" type="number" min="1" value="1">' +
     '</div>' +
-    '<p>Итого в месяц: <span class="carpet-total" id="' + carpets + '-total">0</span>р</p>' +
+    '<p>Итого в месяц: <span class="carpet-form__carpet-total" id="' + carpets + '-total">0</span>р</p>' +
     '</div>'
     )
 
@@ -63,10 +63,10 @@
   }
 
   function addEvents(el) {
-    var widths = el.querySelectorAll('.cm-w'),
-    heights = el.querySelectorAll('.cm-h'),
-    types = el.querySelectorAll('.carp-type'),
-    amounts = el.querySelectorAll('.amount');
+    var widths = el.querySelectorAll('.carpet-form__cm-w'),
+    heights = el.querySelectorAll('.carpet-form__cm-h'),
+    types = el.querySelectorAll('.carpet-form__type'),
+    amounts = el.querySelectorAll('.carpet-form__amount');
 
     for(var i=0; i < widths.length; i++) {
     widths[i].addEventListener('change', calcPrice);
@@ -83,5 +83,37 @@
     for(var i=0; i < amounts.length; i++) {
     amounts[i].addEventListener('change', calcPrice);
     }
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+
+    if(e.target.querySelector('.carpet-form__submit').classList.contains('inactive')) {
+      return;
+    }
+
+    let data = new FormData(document.querySelector('#carpet-form'));
+    e.target.querySelector('.carpet-form__submit').classList.add('inactive');
+
+    fetch('/send_carpet_form/', {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': document.querySelector('input[name="csrfmiddlewaretoken"]').value
+      },
+      body: data
+    })
+      .then(function(response) {
+        response.json()
+          .then(function(result) {
+            alert('Заказ успешно отправлен!');
+            e.target.querySelector('.carpet-form__submit').classList.remove('inactive');
+            window.location.replace('/');
+          })
+          .catch(function(err) {
+            alert('Произошла ошибка сервера. Пожалуйста, попробуйте позже.');
+            e.target.querySelector('.carpet-form__submit').classList.remove('inactive');
+          })
+
+      })
   }
 })()

@@ -36,8 +36,28 @@ input[type="text"], input[type="number"] {
   font-size: 16px;
 }
 
-.cm-w, .cm-h, .amount {
+.carpet-form__cm-w, .carpet-form__cm-h, carpet-form__amount {
   width: 40px;
+}
+
+.carpet-form__total-text {
+  font-size: 1.1rem;
+}
+
+.carpet-form__submit {
+  display: block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  border: none;
+  background-color: var(--main-color);
+  border-radius: 7px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.carpet-form__submit:hover {
+  background-color: #c98906;
 }
 
 .carpet-catalog__image_york-br {
