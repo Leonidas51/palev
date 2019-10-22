@@ -48,8 +48,26 @@ h1.title {
 }
 
 .carpet-sample {
+  display: inline-block;
   width: 300px;
-  height: 200px;
+  height: 250px;
+  background-size: cover;
+}
+
+.carpet-sample_1 {
+  background-image: url('../images/sample_1.jpg');
+}
+
+.carpet-sample_2 {
+  background-image: url('../images/sample_2.jpg');
+}
+
+.carpet-sample_1:hover {
+  background-image: url('../images/sample_1_hover.jpg');
+}
+
+.carpet-sample_2:hover {
+  background-image: url('../images/sample_2_hover.jpg');
 }
 
 .article__pic {
