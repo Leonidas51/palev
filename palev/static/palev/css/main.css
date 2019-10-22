@@ -1,5 +1,15 @@
 :root {
   --main-color: #f7a809;
+  --cycle-time: 16s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url(../fonts/Lato-Regular.ttf);
 }
 
 @font-face {
@@ -10,4 +20,19 @@
 #main {
   max-width: 1240px;
   margin: 20px auto auto auto;
+}
+
+.title {
+  font-family: "LatoBold", Arial, Tahoma, sans-serif;
+  font-size: 30px;
+}
+
+.paragraph, .text {
+  font-family: "Lato", Arial, Tahoma, sans-serif;
+  font-size: 18px;
+}
+
+.paragraph::before {
+  content: "";
+  margin-left: 20px;
 }
