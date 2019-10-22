@@ -14,3 +14,6 @@ def clean(request):
 
 def chem(request):
   return render(request, 'chem.html')
+
+def contact(request):
+  return render(request, 'contact.html')

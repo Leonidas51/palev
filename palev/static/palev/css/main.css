@@ -36,3 +36,8 @@ html {
   content: "";
   margin-left: 20px;
 }
+
+.contact__map {
+  display: flex;
+  justify-content: center;
+}

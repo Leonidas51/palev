@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block custom %}
+  <title>Контакты</title>
+{% endblock %}
+
+{% block content %}
+  <div class="content">
+    <h1 class="title">Контакты</h1>
+    <p class="text"><b>Адрес:</b> г. Москва, ул. Кольская д. 7, с. 8</p>
+    <p class="text"><b>Телефоны:</b> +7 (495) 600-39-89, +7 (495) 504-75-26</p>
+    <p class="text"><b>Email:</b> info@palev.ru</p>
+    <p class="text"><b>Схема проезда:</b></p>
+    <div class="contact__map"><script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=k2oApJ_bwi5162ELF6xx9eQPWG7vW1Yx&width=600&height=500&lang=ru_RU&sourceType=constructor"></script></div>
+  </div>
+{% endblock %}
