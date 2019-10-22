@@ -8,5 +8,8 @@ urlpatterns = [
     url(r'^clean/', views.clean, name='clean'),
     url(r'^chem/', views.chem, name='chem'),
     url(r'^contact/', views.contact, name='contact'),
+    url(r'^carpets/', views.carpets, name='carpets'),
+    url(r'^articles/', views.articles, name='articles'),
+    url(r'^article/(?P<pk>[0-9]+)$', views.article, name='article'),
     url(r'^admin/', admin.site.urls),
 ]
