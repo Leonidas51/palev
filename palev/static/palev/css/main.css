@@ -80,6 +80,7 @@ h1.title {
 }
 
 .hours-img {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 }

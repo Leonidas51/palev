@@ -38,6 +38,9 @@ def article(request, pk):
 def replacement(request):
   return render(request, 'replacement.html')
 
+def cleaning(request):
+  return render(request, 'cleaning.html')
+
 def send_carpet_form(request):
   if request.method == 'POST':
     count = 1
