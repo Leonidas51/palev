@@ -79,3 +79,7 @@
 .price__table_fur th:not(:nth-child(1)):not(:nth-child(2)) {
   width: 12%;
 }
+
+.price__table_replacement th {
+  width: 16%;
+}
