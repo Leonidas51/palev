@@ -32,6 +32,10 @@
   padding-left: 10px;
 }
 
+.price__td-center {
+  text-align: center !important;
+}
+
 .price__table_three-prices th:nth-child(1), .price__table_standart th:nth-child(1) {
   width: 7%;
 }

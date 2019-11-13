@@ -41,6 +41,9 @@ def replacement(request):
 def cleaning(request):
   return render(request, 'cleaning.html')
 
+def price(request):
+  return render(request, 'price.html')
+
 def send_carpet_form(request):
   if request.method == 'POST':
     count = 1
