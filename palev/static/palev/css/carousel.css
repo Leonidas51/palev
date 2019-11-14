@@ -140,9 +140,12 @@
 }
 
 .carousel_main__text {
+  opacity: 0;
   font-family: "LatoBold", Arial, Tahoma, sans-serif;
   font-size: 35px;
   color: #FFFFFF;
   text-transform: uppercase;
   text-align: center;
+  animation: 1s appear linear forwards;
+  animation-delay: 2.5s;
 }
