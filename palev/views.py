@@ -5,44 +5,51 @@ import json
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
 from django.http import HttpResponse
-from .models import Article
+from .models import Article, Page
 
 def index(request):
-  return render(request, 'index.html')
+  page = Page.objects.get(page_link='index')
+  return render(request, 'page.html', {'page': page})
 
 def rent(request):
-  return render(request, 'rent.html')
+  page = Page.objects.get(page_link='rent')
+  return render(request, 'page.html', {'page': page})
 
 def clean(request):
-  return render(request, 'clean.html')
+  page = Page.objects.get(page_link='clean')
+  return render(request, 'page.html', {'page': page})
 
 def chem(request):
-  return render(request, 'chem.html')
+  page = Page.objects.get(page_link='chem')
+  return render(request, 'page.html', {'page': page})
 
 def contact(request):
-  return render(request, 'contact.html')
+  page = Page.objects.get(page_link='contact')
+  return render(request, 'page.html', {'page': page})
 
 def carpets(request):
-  return render(request, 'carpets.html')
+  page = Page.objects.get(page_link='carpets')
+  return render(request, 'page.html', {'page': page})
 
 def articles(request):
   article_list = Article.objects.filter(published=1).order_by('id')
-
   return render(request, 'articles.html', {'articles': article_list})
 
 def article(request, pk):
   article = get_object_or_404(Article, pk=pk)
-
   return render(request, 'article.html', {'article': article})
 
 def replacement(request):
-  return render(request, 'replacement.html')
+  page = Page.objects.get(page_link='replacement')
+  return render(request, 'page.html', {'page': page})
 
 def cleaning(request):
-  return render(request, 'cleaning.html')
+  page = Page.objects.get(page_link='cleaning')
+  return render(request, 'page.html', {'page': page})
 
 def price(request):
-  return render(request, 'price.html')
+  page = Page.objects.get(page_link='price')
+  return render(request, 'page.html', {'page': page})
 
 def send_carpet_form(request):
   if request.method == 'POST':

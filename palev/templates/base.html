@@ -10,7 +10,11 @@
         <link rel="stylesheet" type="text/css" href="{% static 'palev/css/carousel.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'palev/css/header.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'palev/css/footer.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'palev/css/carpets.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'palev/css/price.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'palev/css/index.css' %}">
 
+        <script src="{% static 'palev/js/carpets_form.js' %}"></script>
         <script src="{% static 'palev/js/carousel.js' %}"></script>
         {% block custom %}
         {% endblock %}
@@ -18,6 +22,7 @@
 
 
     <body>
+      {% csrf_token %}
       <div id="main">
         <div id="header">
           <div class="header__container">
