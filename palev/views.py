@@ -51,6 +51,10 @@ def price(request):
   page = Page.objects.get(page_link='price')
   return render(request, 'page.html', {'page': page})
 
+def unsorted_page(request, link):
+  page = Page.objects.get(page_link=link)
+  return render(request, 'page.html', {'page': page})
+
 def send_carpet_form(request):
   if request.method == 'POST':
     count = 1

@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^price/', views.price, name='price'),
     url(r'^send_carpet_form/$', views.send_carpet_form, name='send_carpet_form'),
     url(r'^admin/', admin.site.urls),
+    url(r'^(?P<link>[a-zA-Z0-9_-]+)/', views.unsorted_page, name='unsorted_page'),
 ]
