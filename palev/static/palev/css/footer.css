@@ -18,20 +18,21 @@
   position: relative;
   margin-left: 7px;
   margin-right: 7px;
+  font-size: 18px;
+  font-weight: 700;
   color: inherit;
   text-decoration: none;
   text-align: center;
 }
 
 .footer__link_important {
-  font-size: 18px;
-  font-weight: 700;
 }
 
 .footer__link:not(:first-child)::before {
   content: '|';
   position: absolute;
   left: -8px;
+  font-weight: 400;
 }
 
 .footer__text {

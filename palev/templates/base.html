@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         {% load static %}
+        {% load tags %}
 
         <link rel="stylesheet" type="text/css" href="{% static 'palev/css/main.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'palev/css/carousel.css' %}">
@@ -24,57 +25,12 @@
     <body>
       {% csrf_token %}
       <div id="main">
-        <div id="header">
-          <div class="header__container">
-            <div class="header__logo"><a href="/"><img src="{% static 'palev/images/logo3.png' %}"></a></div>
-            <div class="header__links">
-              <div class="header__link-container"><a class="header__link" href="/">Главная</a></div>
-              <div class="header__link-container"><a class="header__link" href="/#about">О нас</a></div>
-              <div class="header__link-container"><a class="header__link" href="/rent/#rent">Прокат ковров</a></div>
-              <div class="header__link-container"><a class="header__link" href="/rent/#samples">Образцы ковров</a></div>
-              <div class="header__link-container"><a class="header__link" href="/clean">Стирка белья</a></div>
-              <div class="header__link-container"><a class="header__link" href="/chem">Химчистка</a></div>
-            </div>
-          </div>
-        </div>
- 
-        <div class="carousel carousel_main">
-          <div class="carousel__container carousel__container_current carousel__container_main-1">
-              <img class="carousel__image carousel__image_initial carousel__image_main-1" src="{% static 'palev/images/001.jpg' %}">
-          </div>
-          <div class="carousel__container carousel__container_next carousel__container_main-2">
-              <img class="carousel__image carousel__image_main-2" src="{% static 'palev/images/002.jpg' %}">
-          </div>
-          <div class="carousel__container carousel__container_main-3">
-              <img class="carousel__image carousel__image_main-3" src="{% static 'palev/images/003.jpg' %}">
-          </div>
-          <div class="carousel_main__container-contacts">
-            <a class="carousel_main__container-tel carousel_main__container-tel_1" href="tel:+74956003989">+7 (495) 600-39-89</a><br />
-            <a class="carousel_main__container-tel carousel_main__container-tel_2" href="tel:+74955047526">+7 (495) 504-75-26</a>
-          </div>
-          <div class="carousel_main__container-title">
-            <div class="carousel_main__text">Всегда чистый ковёр</div>
-          </div>
-        </div>
+        {% header %}
 
         {% block content %}
         {% endblock %}
-        <div id="footer">
-          <div class="footer__links">
-            <a class="footer__link" href="/#index">Главная</a>
-            <a class="footer__link" href="/#about">О нас</a>
-            <a class="footer__link" href="/rent/#rent">Прокат ковров</a>
-            <a class="footer__link" href="/clean">Стирка белья</a>
-            <a class="footer__link" href="/chem">Химчистка</a>
-            <a class="footer__link" href="/rent/#samples">Образцы ковров</a>
-            <a class="footer__link" href="/price">Прайс-лист</a>
-            <a class="footer__link" href="/articles">Полезная информация</a>
-            <a class="footer__link" href="#">Наши клиенты</a>
-            <a class="footer__link footer__link_important" href="/contact">Контакты</a>
-          </div>
-          <div class="footer__text">г. Москва, ул. Кольская д. 7, с. 8 | +7 (495) 600-39-89 | +7 (495) 504-75-26 | info@palev.ru</div>
-          <div class="footer__text">© palev.ru, 2019</div>
-        </div>
+        
+        {% footer %}
       </div>
     </body>
 </html>
